@@ -30,7 +30,7 @@ if fBanks.len >= 0 then
 	end for
 end if
 
-if fMails.len >= 1 then
+if fMails.len >= 0 then
 	print("\nMail:")
 	for fMail in fMails
 		print("| " + fMail.path)
