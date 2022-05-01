@@ -1,0 +1,7 @@
+metaxploit = include_lib("/lib/metaxploit.so")
+if not metaxploit then metaxploit = include_lib(current_path+"/metaxploit.so")
+if not metaxploit then exit("Can't find metaxploit.so in /lib folder or current folder.")
+if params.len == 0 then exit("You have to specify full path.\nTarget file must be library.\nusage: "+program_path.split("/")[-1]+" /folder/filename.so")
+lib = metaxploit.load(params[0])
+if not lib then exit("You have to specify full path.\nTarget file must be library.\nusage: "+program_path.split("/")[-1]+" /folder/filename.so")
+print(lib.lib_name+" = "+lib.version)
