@@ -1,0 +1,13 @@
+if params.len == 1 and (params[0] == "-h" or params[0] == "--help" or params[0] != "-save") then exit(command_info("sniffer2 [opt: -save]"))
+metaxploit = include_lib("/lib/metaxploit.so")
+if not metaxploit then
+	metaxploit = include_lib(current_path + "/metaxploit.so")
+end if
+if not metaxploit then exit("Error: Can't find metaxploit library in the /lib path or the current folder")
+
+print("Listening...")
+while true
+	output = metaxploit.sniffer(params.len == 1)
+	if not output then exit("Unknown error: can't start to listening")
+	print(output)
+end while
