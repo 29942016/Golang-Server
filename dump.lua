@@ -9,17 +9,18 @@ for fUser in fUsers
 	fBank = computer.File("/home/" + fUser.name + "/Config/Bank.txt")
 	fMail = computer.File("/home/" + fUser.name + "/Config/Mail.txt")
 	
-	if not fBank then 
+	if fBank then 
+		fBanks.push(fBank);
+	else
 		print("\n[X] Couldn't access bank of: " + fUser.name) 
-		continue 
 	end if
-	fBanks.push(fBank);
 	
-	if not fMail then
-		print("\n[X] Couldn't access mail of: " + fUser.name)
-		continue
+	if fMail then
+		fMails.push(fMail);
+	else
+		print("[X] Couldn't access mail of: " + fUser.name)
 	end if
-	fMails.push(fMail);
+	
 end for
 
 if fBanks.len >= 0 then
