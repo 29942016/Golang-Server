@@ -14,11 +14,11 @@ if not result then exit("Program ended")
 printFiles = function(folder)
 	bins = folder.get_files
 	for bin in bins
-		print(bin.permissions + " " + bin.owner + " " + bin.permissions + " " + bin.path)
+		print(bin.permissions + " " + bin.owner + " " + bin.group + " " + bin.path)
 	end for
 	folders = folder.get_folders
 	for f in folders
-		print(f.permissions + " " + f.owner + " " + f.permissions + " " + f.path)
+		print(f.permissions + " " + f.owner + " " + f.group + " " + f.path)
 		printFiles(f)
 	end for
 end function
