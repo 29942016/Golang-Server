@@ -1,0 +1,13 @@
+if params.len > 0 then exit(command_info("ps_usage"))
+output = get_shell.host_computer.show_procs
+procs = output.split("\n")
+newProcList = ""
+
+for proc in procs
+	if proc.indexOf("xxx") != null then
+	else
+		newProcList = newProcList + "\n" + proc
+	end if
+end for
+
+print(format_columns(newProcList))
