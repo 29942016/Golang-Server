@@ -25,16 +25,20 @@ end function
 
 if typeof(result) == "shell" then
 	comp = result.host_computer
-	//res = comp.touch("/Public/htdocs/downloads", "test")
-	//print(res)
 	fRoot = comp.File("/")
 	fRootFolders = fRoot.get_folders
-	content = []
-	
 	print(fRoot.permissions + " " + fRoot.path)
-	
 	printFiles(fRoot)
-	// result.start_terminal
+	
+	uName = active_user
+	uMail = user_mail_address
+	uBank = user_bank_number
+	uProcs = result.show_procs
+
+	print("\nActive User")
+	print("User: " + uName + "\nMail: " + uMail + "\nBank: " + uBank)
+	print("-")
+	print(uProcs + "\n")
 else
 	print("Error: expected shell, obtained: " + result)
 end if
